@@ -76,6 +76,13 @@ void opcontrol(void);
  * You can add C++-only headers here
  */
 //#include <iostream>
+
+#include "subsystemHeaders/descorer.hpp"
+#include "subsystemHeaders/drive.hpp"
+#include "subsystemHeaders/flywheel.hpp"
+#include "subsystemHeaders/globals.hpp"
+#include "subsystemHeaders/intake.hpp"
+
 #endif
 
 #endif  // _PROS_MAIN_H_
