@@ -36,6 +36,22 @@
 
 #include "api.h"
 
+// Controller
+extern pros::Controller controller;
+
+// Motors
+extern pros::Motor driveLeftFront;
+extern pros::Motor driveLeftBack;
+extern pros::Motor driveRightFront;
+extern pros::Motor driveRightBack;
+extern pros::Motor flywheelTop;
+extern pros::Motor flywheelBottom;
+extern pros::Motor intake;
+extern pros::Motor descorer;
+
+// Sensors
+extern pros::ADIGyro gyro;
+
 /**
  * You should add more #includes here
  */
@@ -76,12 +92,6 @@ void opcontrol(void);
  * You can add C++-only headers here
  */
 //#include <iostream>
-
-#include "subsystemHeaders/descorer.hpp"
-#include "subsystemHeaders/drive.hpp"
-#include "subsystemHeaders/flywheel.hpp"
-#include "subsystemHeaders/globals.hpp"
-#include "subsystemHeaders/intake.hpp"
 
 #endif
 
