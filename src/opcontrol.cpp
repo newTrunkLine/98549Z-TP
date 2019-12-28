@@ -1,5 +1,4 @@
 #include "main.h"
-#include "subsystemHeaders/drive.hpp"
 /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -16,10 +15,10 @@
 
 void opcontrol()
 {
-	driveClass base;
-
 	while(true){
-		base.setDriveOP();
+		drivebase.driverControl();
+		balls.driverControl();
+		caps.driverControl();
 		pros::delay(10);
 	}
 }

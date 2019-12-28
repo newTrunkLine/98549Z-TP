@@ -1,9 +1,12 @@
 #include "main.h"
-#include "subsystemHeaders/drive.hpp"
+
+// Constants
+const int JOYSTICK_DEADZONE = 10;
 
 // Helper Functions
-void driveClass::setDrive(int left, int right)
+void Drivebase::setDrivePower(int left, int right)
 {
+  // Sets voltage of each drive motor
   driveLeftFront = left;
   driveLeftBack = left;
   driveRightFront = right;
@@ -11,19 +14,19 @@ void driveClass::setDrive(int left, int right)
 }
 
 // Driver Control Functions
-void driveClass::setDriveOP()
+void Drivebase::driverControl()
 {
+  // Get joystick positions
   int leftJoystick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
   int rightJoystick = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
 
   // Ignore joystick input if it's too small
-  const int joystickDeadzone = 10;
-  if(abs(leftJoystick) < joystickDeadzone){
+  if(abs(leftJoystick) < JOYSTICK_DEADZONE){
     leftJoystick = 0;
   }
-  if(abs(rightJoystick) < joystickDeadzone){
+  if(abs(rightJoystick) < JOYSTICK_DEADZONE){
     rightJoystick = 0;
   }
 
-  setDrive(leftJoystick, rightJoystick);
+  setDrivePower(leftJoystick, rightJoystick);
 }

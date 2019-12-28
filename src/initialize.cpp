@@ -16,6 +16,11 @@ pros::Motor descorer(8, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_C
 // Sensors
 pros::ADIGyro gyro('a');
 
+// Subsystem Classes
+Drivebase drivebase;
+Balls balls;
+Caps caps;
+
 void initialize()
 {
 	pros::lcd::initialize();
