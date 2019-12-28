@@ -16,7 +16,7 @@
 void opcontrol()
 {
 	while(true){
-		drivebase.driverControl();
+		drivebase.driverControlSplitArcade();
 		balls.driverControl();
 		caps.driverControl();
 		pros::delay(10);

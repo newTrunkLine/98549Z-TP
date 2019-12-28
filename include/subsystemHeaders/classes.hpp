@@ -10,7 +10,9 @@ public:
   void setDrivePower(int left, int right);
 
   // Driver Control Functions
-  void driverControl();
+  void driverControlTank();
+  void driverControlSplitArcade();
+  void driverControlExpo();
 
   // Autonomous Functions
 };
