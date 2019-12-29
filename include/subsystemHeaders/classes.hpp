@@ -8,6 +8,7 @@ class Drivebase
 public:
   // Helper Functions
   void setDrivePower(int left, int right);
+  int expoFunction(int joystickValue);
 
   // Driver Control Functions
   void driverControlTank();
