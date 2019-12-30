@@ -8,14 +8,17 @@ class Drivebase
 public:
   // Helper Functions
   void setDrivePower(int left, int right);
-  int expoFunction(int joystickValue);
+  int expoDrive(int joystickValue);
+  void resetDriveEncoders();
+  double getAveDriveEncoderValue();
 
   // Driver Control Functions
   void driverControlTank();
-  void driverControlSplitArcade();
-  void driverControlExpo();
+  void driverControlStrafe();
+  void driverControlArcade();
 
   // Autonomous Functions
+  void movePD(int targetPosition, int timeout);
 };
 
 class Balls

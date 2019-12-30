@@ -11,14 +11,14 @@
  * from where it left off.
  */
 
-void blueFront(){}
+void blueFront(bool isParked){}
 
-void blueBack(){}
+void blueBack(bool isParked){}
 
-void redFront(){}
+void redFront(bool isParked){}
 
-void redBack(){}
- 
+void redBack(bool isParked){}
+
 void autonomous()
 {
 

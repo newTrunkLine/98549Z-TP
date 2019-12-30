@@ -1,8 +1,8 @@
 #include "main.h"
 
 // Constants
-const int MAX_VELOCITY = 127;
-const int LOW_VELOCITY = 85;
+const int MAX_VOLTAGE = 127;
+const int LOW_VOLTAGE = 85;
 
 // Helper Functions
 void Balls::setIntakePower(int power)
@@ -27,11 +27,11 @@ void Balls::driverControl()
   // Flywheel Control
   // Up button sets flywheel power to maximum voltage
   if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
-    setFlywheelPower(MAX_VELOCITY);
+    setFlywheelPower(MAX_VOLTAGE);
   }
   // Down button sets flywheel to a lower voltage
   else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
-    setFlywheelPower(LOW_VELOCITY);
+    setFlywheelPower(LOW_VOLTAGE);
   }
   else{
     setFlywheelPower(0);
