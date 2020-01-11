@@ -1,8 +1,6 @@
 #ifndef CLASSES_HPP
 #define CLASSES_HPP
 
-// Contains all declarations of classes used
-
 class Drivebase
 {
 public:

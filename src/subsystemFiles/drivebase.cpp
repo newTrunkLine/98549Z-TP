@@ -62,7 +62,8 @@ double Drivebase::getAveDriveEncoderValue()
 
 void Drivebase::driverControlTank()
 {
-  // Left joystick controls left side of drivebase and right joystick controls right side of drivebase
+  // Left joystick controls left side of drivebase
+  // Right joystick controls right side of drivebase
 
   // Get joystick values
   leftPower = getExpoValue(controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y));
