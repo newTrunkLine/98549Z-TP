@@ -1,8 +1,8 @@
 #include "main.h"
 
-// ====================
-// Initialize Variables
-// ====================
+// =============================================================================
+//                            Initialize Variables
+// =============================================================================
 
 Drivebase::Drivebase()
 {
@@ -13,9 +13,9 @@ Drivebase::Drivebase()
   kD = 0.0;
 }
 
-// ================
-// Helper Functions
-// ================
+// =============================================================================
+//                              Helper Functions
+// =============================================================================
 
 void Drivebase::setDrivePower(int left, int right)
 {
@@ -30,10 +30,7 @@ int Drivebase::getExpoValue(int joystickValue)
 {
     output = 0;
     // Ignore joystick input if it's too small
-    if(abs(joystickValue) < joystickDeadzone){
-      // Do nothing
-    }
-    else{
+    if(abs(joystickValue) > joystickDeadzone){
       // Direction is either 1 or -1, based on joystick value
       int direction = abs(joystickValue) / joystickValue;
       // Plug joystick value into exponential function, return result
@@ -59,9 +56,9 @@ double Drivebase::getAveDriveEncoderValue()
         + fabs(driveRightBack.get_position())) / 4;
 }
 
-// ========================
-// Driver Control Functions
-// ========================
+// =============================================================================
+//                          Driver Control Functions
+// =============================================================================
 
 void Drivebase::driverControlTank()
 {
@@ -90,9 +87,9 @@ void Drivebase::driverControlArcade()
   setDrivePower(leftPower, rightPower);
 }
 
-// ====================
-// Autonomous Functions
-// ====================
+// =============================================================================
+//                            Autonomous Functions
+// =============================================================================
 
 void Drivebase::autoMove(int targetValue, int voltage)
 {

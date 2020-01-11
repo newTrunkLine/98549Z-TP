@@ -1,13 +1,19 @@
 #include "main.h"
 
-// Initialize Variables
+// =============================================================================
+//                            Initialize Variables
+// =============================================================================
+
 Balls::Balls()
 {
   minVoltage = -127;
   maxVoltage = 127;
 }
 
-// Helper Functions
+// =============================================================================
+//                              Helper Functions
+// =============================================================================
+
 void Balls::setIntakePower(int power)
 {
   intake = power;
@@ -19,12 +25,16 @@ void Balls::setFlywheelPower(int power)
   flywheelBottom = power;
 }
 
-// Driver Control Functions
+// =============================================================================
+//                          Driver Control Functions
+// =============================================================================
+
 void Balls::driverControl()
 {
   // Intake Control
   // Top right trigger (R1) intakes and bottom right trigger (R2) outtakes
-  intakePower = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
+  intakePower = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)
+                      - controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
   setIntakePower(intakePower);
 
   // Flywheel Control
