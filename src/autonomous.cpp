@@ -3,6 +3,25 @@
 // As I no longer have either my TP robot or competition code, the values I use in auton are completely arbitrary
 
 // =============================================================================
+//                             Forward Declarations
+// =============================================================================
+
+void blueFlags(bool alliancePark);
+void redFlags(bool alliancePark);
+void blueCaps(bool alliancePark);
+void redCaps(bool alliancePark);
+void skills();
+
+// =============================================================================
+//                                  Autonomous
+// =============================================================================
+
+void autonomous()
+{
+  blueFlags(false);
+}
+
+// =============================================================================
 //                                  Blue Flags
 // =============================================================================
 
@@ -199,9 +218,4 @@ void skills()
   // As much as I'd like to make a skills function, all the values would be arbitrary
   // and it's hard to guage what tasks my robot would be able to accomplish in the
   // time limit when I can't test my program
-}
-
-void autonomous()
-{
-  blueFlags(false);
 }
