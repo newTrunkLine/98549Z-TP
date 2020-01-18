@@ -9,9 +9,9 @@ public:
 
   // Helper Functions
   void setDrivePower(int left, int right);
-  int getExpoValue(int joystickValue);
-  void resetDriveSensors();
+  void resetDriveSensors(bool resetGyro);
   double getAveDriveEncoderValue();
+  int getExpoValue(int joystickValue);
 
   // Driver Control Functions
   void driverControlTank();
@@ -19,14 +19,11 @@ public:
 
   // Autonomous Functions
   void autoMove(int targetValue, int voltage);
-  void autoRotate(int degrees, int voltage);
+  void autoRotate(int targetDegrees, int voltage);
   void autoMovePD(int targetValue, int timeout);
-  void autoRotatePD(int degrees, int timeout);
+  void autoRotatePD(int targetDegrees, int timeout);
 
 private:
-  int joystickDeadzone;
-  int minVoltage;
-  int maxVoltage;
   int output;
   int leftPower;
   int rightPower;
@@ -47,19 +44,15 @@ private:
 class Balls
 {
 public:
-  // Initialize Variables
-  Balls();
 
   // Helper Functions
   void setIntakePower(int power);
-  void setFlywheelPower(int power);
+  void setFWPower(int power);
 
   // Driver Control Functions
   void driverControl();
 
 private:
-  int minVoltage;
-  int maxVoltage;
   int intakePower;
 };
 

@@ -28,6 +28,12 @@ extern Drivebase drivebase;
 extern Balls balls;
 extern Caps caps;
 
+// Defines
+#define JOYSTICK_DEADZONE 8
+#define MAX_VOLTAGE 127
+#define LOW_VOLTAGE 80
+#define MIN_VOLTAGE -127
+
 #ifdef __cplusplus
 extern "C" {
 #endif

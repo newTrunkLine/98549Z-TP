@@ -40,20 +40,20 @@ void blueFlags(bool alliancePark)
   drivebase.autoMove(50, 127);
   drivebase.autoRotate(90, 127);
   // Shoot top flag
-  balls.setFlywheelPower(127);
+  balls.setFWPower(127);
   pros::delay(250);
   balls.setIntakePower(127);
   pros::delay(100);
   balls.setIntakePower(0);
-  balls.setFlywheelPower(0);
+  balls.setFWPower(0);
   // Move forward and shoot middle flag
   drivebase.autoMove(150, 127);
-  balls.setFlywheelPower(127);
+  balls.setFWPower(127);
   pros::delay(250);
   balls.setIntakePower(127);
   pros::delay(100);
   balls.setIntakePower(0);
-  balls.setFlywheelPower(0);
+  balls.setFWPower(0);
   // Move forward to hit bottom flag
   drivebase.autoRotate(10, 127);
   drivebase.autoMove(200, 127);
@@ -94,20 +94,20 @@ void redFlags(bool alliancePark)
   drivebase.autoMove(50, 127);
   drivebase.autoRotate(-90, 127);
   // Shoot top flag
-  balls.setFlywheelPower(127);
+  balls.setFWPower(127);
   pros::delay(250);
   balls.setIntakePower(127);
   pros::delay(100);
   balls.setIntakePower(0);
-  balls.setFlywheelPower(0);
+  balls.setFWPower(0);
   // Move forward and shoot middle flag
   drivebase.autoMove(150, 127);
-  balls.setFlywheelPower(127);
+  balls.setFWPower(127);
   pros::delay(250);
   balls.setIntakePower(127);
   pros::delay(100);
   balls.setIntakePower(0);
-  balls.setFlywheelPower(0);
+  balls.setFWPower(0);
   // Move forward to hit bottom flag
   drivebase.autoRotate(-10, 127);
   drivebase.autoMove(200, 127);
@@ -137,12 +137,12 @@ void blueCaps(bool alliancePark)
 {
   if(!alliancePark){
     // Shoot middle flag
-    balls.setFlywheelPower(127);
+    balls.setFWPower(127);
     pros::delay(250);
     balls.setIntakePower(127);
     pros::delay(100);
     balls.setIntakePower(0);
-    balls.setFlywheelPower(0);
+    balls.setFWPower(0);
     // Turn to face caps
     drivebase.autoRotate(-90, 127);
   }
@@ -177,12 +177,12 @@ void redCaps(bool alliancePark)
 {
   if(!alliancePark){
     // Shoot middle flag
-    balls.setFlywheelPower(127);
+    balls.setFWPower(127);
     pros::delay(250);
     balls.setIntakePower(127);
     pros::delay(100);
     balls.setIntakePower(0);
-    balls.setFlywheelPower(0);
+    balls.setFWPower(0);
     // Turn to face caps
     drivebase.autoRotate(90, 127);
   }

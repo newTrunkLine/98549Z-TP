@@ -17,7 +17,7 @@ void Caps::driverControl()
 {
   // Descorer Control
   // Top left trigger (L1) raises descorer and bottom left trigger (L2) lowers descorer
-  descorerPower = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)
-                        - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
+  descorerPower = MAX_VOLTAGE * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)
+                              - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
   setDescorerPower(descorerPower);
 }
