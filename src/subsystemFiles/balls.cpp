@@ -6,13 +6,15 @@
 
 void Balls::setIntakePower(int power)
 {
-  intake = power;
+  // Sets the voltage for the intake motor
+  intake.move(power);
 }
 
 void Balls::setFWPower(int power)
 {
-  flywheelTop = power;
-  flywheelBottom = power;
+  // Sets the voltage for each flywheel motor
+  flywheelTop.move(power);
+  flywheelBottom.move(power);
 }
 
 // =============================================================================
@@ -23,17 +25,17 @@ void Balls::driverControl()
 {
   // Intake Control
   // Top right trigger (R1) intakes and bottom right trigger (R2) outtakes
-  intakePower = MAX_VOLTAGE * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)
-                            - controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
-  setIntakePower(intakePower);
+  m_intakePower = MAX_VOLTAGE * (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)
+                            - master.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
+  setIntakePower(m_intakePower);
 
   // Flywheel Control
   // Up button sets flywheel power to maximum voltage
-  if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
+  if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
     setFWPower(MAX_VOLTAGE);
   }
   // Down button sets flywheel to a lower voltage
-  else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
+  else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
     setFWPower(LOW_VOLTAGE);
   }
   else{

@@ -24,27 +24,27 @@ public:
   void autoRotatePD(int targetDegrees, int timeout);
 
 private:
-  int output;
-  int leftPower;
-  int rightPower;
-  int arcadeY;
-  int arcadeX;
-  int direction;
-  float kP;
-  float kD;
-  int currentValue;
-  int currentDegrees;
-  int error;
-  int errorDiff;
-  int errorPrevious;
-  int power;
-  int startTime;
+  int m_output;
+  int m_driveExponent;
+  int m_leftPower;
+  int m_rightPower;
+  int m_arcadeY;
+  int m_arcadeX;
+  int m_direction;
+  float m_kP;
+  float m_kD;
+  int m_currentValue;
+  int m_currentDegrees;
+  int m_error;
+  int m_errorDiff;
+  int m_errorPrevious;
+  int m_power;
+  int m_startTime;
 };
 
 class Balls
 {
 public:
-
   // Helper Functions
   void setIntakePower(int power);
   void setFWPower(int power);
@@ -53,7 +53,7 @@ public:
   void driverControl();
 
 private:
-  int intakePower;
+  int m_intakePower;
 };
 
 class Caps
@@ -66,7 +66,7 @@ public:
   void driverControl();
 
 private:
-  int descorerPower;
+  int m_descorerPower;
 };
 
 #endif

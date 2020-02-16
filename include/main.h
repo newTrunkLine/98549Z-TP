@@ -6,9 +6,10 @@
 
 #include "api.h"
 #include "subsystemHeaders/classes.hpp"
+#include "subsystemHeaders/pid.hpp"
 
 // Controller
-extern pros::Controller controller;
+extern pros::Controller master;
 
 // Motors
 extern pros::Motor driveLeftFront;

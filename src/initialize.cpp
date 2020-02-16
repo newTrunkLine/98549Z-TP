@@ -1,7 +1,7 @@
 #include "main.h"
 
 // Controller
-pros::Controller controller(pros::E_CONTROLLER_MASTER);
+pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 // Motors
 pros::Motor driveLeftFront(20, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
@@ -23,7 +23,6 @@ Caps caps;
 
 void initialize()
 {
-	pros::lcd::initialize();
 	// Set brake type for all motors
 	driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
