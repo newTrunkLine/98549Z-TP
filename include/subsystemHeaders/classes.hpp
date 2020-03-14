@@ -20,8 +20,6 @@ public:
   // Autonomous Functions
   void autoMove(int targetValue, int voltage);
   void autoRotate(int targetDegrees, int voltage);
-  void autoMovePD(int targetValue, int timeout);
-  void autoRotatePD(int targetDegrees, int timeout);
 
 private:
   int m_output;
@@ -31,15 +29,6 @@ private:
   int m_arcadeY;
   int m_arcadeX;
   int m_direction;
-  float m_kP;
-  float m_kD;
-  int m_currentValue;
-  int m_currentDegrees;
-  int m_error;
-  int m_errorDiff;
-  int m_errorPrevious;
-  int m_power;
-  int m_startTime;
 };
 
 class Balls

@@ -6,7 +6,6 @@
 
 #include "api.h"
 #include "subsystemHeaders/classes.hpp"
-#include "subsystemHeaders/pid.hpp"
 
 // Controller
 extern pros::Controller master;

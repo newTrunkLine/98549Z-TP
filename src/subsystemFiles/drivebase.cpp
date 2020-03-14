@@ -1,14 +1,12 @@
 #include "main.h"
 
 // =============================================================================
-//                            Initialize Variables
+//                             Initialize Class
 // =============================================================================
 
 Drivebase::Drivebase()
 {
   m_driveExponent = 2;
-  m_kP = 0.0;
-  m_kD = 0.0;
 }
 
 // =============================================================================
@@ -149,72 +147,4 @@ void Drivebase::autoRotate(int targetDegrees, int voltage)
   }
   // Set drive to zero
   setDrivePower(0, 0);
-}
-
-void Drivebase::autoMovePD(int targetValue, int timeout)
-{
-  // Proportional-Derivative drive function used to move drivebase in autonomous
-
-  // Direction is the sign of the targetValue (either 1 or -1)
-  m_direction = abs(targetValue) / targetValue;
-
-  // Reset timer and drivebase motor encoders
-  m_startTime = pros::millis();
-  resetDriveSensors(false);
-
-  while((pros::millis() - m_startTime) < timeout){
-    m_currentValue = getAveDriveEncoderValue();
-
-    // PROPORTIONAL
-    m_error = targetValue - m_currentValue;
-    // DERIVATIVE
-    m_errorDiff = m_error - m_errorPrevious; // Difference between current error and previous error
-    m_errorPrevious = m_error; // Save current error for next cycle
-    // Power = P + D
-    m_power = (m_error * m_kP) + (m_errorDiff * m_kD);
-
-    // Cap power if it's too large or small
-    if(m_power > MAX_VOLTAGE){
-      m_power = MAX_VOLTAGE;
-    }
-    if(m_power < MIN_VOLTAGE){
-      m_power = MIN_VOLTAGE;
-    }
-    setDrivePower(m_power * m_direction, m_power * m_direction);
-    pros::delay(20);
-  }
-}
-
-void Drivebase::autoRotatePD(int targetDegrees, int timeout)
-{
-  // Proportional-Derivative turn function for auton
-
-  // Direction is either 1 or -1, based on target value
-  m_direction = abs(targetDegrees) / targetDegrees;
-
-  // Reset timer and gyro
-  m_startTime = pros::millis();
-  resetDriveSensors(true);
-
-  while((pros::millis() - m_startTime) < timeout){
-    m_currentDegrees = fabs(gyro.get_value());
-
-    // PROPORTIONAL
-    m_error = targetDegrees - m_currentDegrees;
-    // DERIVATIVE
-    m_errorDiff = m_error - m_errorPrevious; // Difference between current error and previous error
-    m_errorPrevious = m_error; // Save current error for next cycle
-    // Power = P + D
-    m_power = (m_error * m_kP) + (m_errorDiff * m_kD);
-
-    // Cap power if it's too large or small
-    if(m_power > MAX_VOLTAGE){
-      m_power = MAX_VOLTAGE;
-    }
-    if(m_power < MIN_VOLTAGE){
-      m_power = MIN_VOLTAGE;
-    }
-    setDrivePower(-m_power * m_direction, m_power * m_direction);
-    pros::delay(20);
-  }
 }
